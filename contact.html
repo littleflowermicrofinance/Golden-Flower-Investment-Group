@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect With Us - Golden Flower Investment Group</title>
+    <style>
+        /* Base Setup & Colors */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', 'Segoe UI', Arial, sans-serif; }
+        :root { 
+            --gold: #c5a028; 
+            --gold-light: rgba(197, 160, 40, 0.1);
+            --bg: #faf9f6; 
+            --card: #ffffff; 
+            --text: #1a1a1a; 
+            --muted: #666666;
+            /* Social Media Colors */
+            --youtube: #ff0000;
+            --tiktok: #010101;
+            --telegram: #0088cc;
+            --twitter: #1da1f2;
+        }
+        body { background-color: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+        
+        /* Navigation Bar */
+        header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); padding: 1.2rem 10%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-bottom: 1px solid rgba(197, 160, 40, 0.08); }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; }
+        nav a { color: var(--text); text-decoration: none; margin-left: 2.2rem; font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
+        nav a:hover, nav a.active { color: var(--gold); }
+
+        /* Main Content Layout */
+        .wrapper { padding: 11rem 10% 5rem 10%; flex: 1; max-width: 1300px; margin: 0 auto; width: 100%; }
+        .page-title { text-align: center; margin-bottom: 4rem; }
+        .page-title h2 { font-size: 2.5rem; font-weight: 800; color: var(--text); }
+        .page-title p { color: var(--muted); font-size: 1.1rem; margin-top: 0.5rem; }
+        
+        .main-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; }
+
+        /* Left Side: Social Cards Grid */
+        .social-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        .social-card { background: var(--card); padding: 2rem; border-radius: 20px; text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.03); transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); position: relative; overflow: hidden; }
+        .social-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--gold); transition: transform 0.3s; transform: scaleX(0); }
+        .social-card:hover::before { transform: scaleX(1); }
+        
+        .social-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        .social-icon { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold; margin-bottom: 1.2rem; transition: transform 0.3s; }
+        .social-card:hover .social-icon { transform: scale(1.1); }
+        
+        .social-card h4 { font-size: 1.2rem; color: var(--text); margin-bottom: 0.3rem; }
+        .social-card span { font-size: 0.85rem; color: var(--muted); }
+
+        /* Specific Social Styles */
+        .yt { --gold: var(--youtube); } .yt .social-icon { background: var(--youtube); box-shadow: 0 8px 20px rgba(255,0,0,0.2); }
+        .tk { --gold: var(--tiktok); } .tk .social-icon { background: var(--tiktok); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+        .tg { --gold: var(--telegram); } .tg .social-icon { background: var(--telegram); box-shadow: 0 8px 20px rgba(0,136,204,0.2); }
+        .tw { --gold: var(--twitter); } .tw .social-icon { background: var(--twitter); box-shadow: 0 8px 20px rgba(29,161,242,0.2); }
+
+        /* Right Side: Form & QR Code */
+        .right-sidebar { display: flex; flex-direction: column; gap: 2rem; }
+        
+        /* Quick Message Form */
+        .message-box { background: var(--card); padding: 2.5rem; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.03); }
+        .message-box h3 { font-size: 1.3rem; margin-bottom: 1.5rem; font-weight: 700; color: #1a1a1a; }
+        .form-group { margin-bottom: 1.2rem; }
+        .form-control { width: 100%; padding: 0.9rem 1.2rem; border-radius: 12px; border: 1px solid #e1e1e1; background: #fdfdfd; font-size: 0.95rem; outline: none; transition: all 0.3s; }
+        .form-control:focus { border-color: var(--gold); background: #fff; box-shadow: 0 0 0 4px var(--gold-light); }
+        .submit-btn { width: 100%; padding: 1rem; background: linear-gradient(135deg, var(--gold) 0%, #aa841c 100%); color: white; border: none; border-radius: 12px; font-weight: 700; cursor: pointer; font-size: 1rem; box-shadow: 0 8px 20px rgba(197, 160, 40, 0.25); transition: all 0.3s; }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 25px rgba(197, 160, 40, 0.4); }
+
+        /* QR Code Card */
+        .qr-card { background: var(--card); padding: 2.5rem; border-radius: 24px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.03); display: flex; flex-direction: column; align-items: center; }
+        .qr-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700; }
+        .qr-card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+        .qr-wrapper { width: 180px; height: 180px; padding: 15px; background: white; border-radius: 16px; border: 2px dashed var(--gold); display: flex; align-items: center; justify-content: center; transition: transform 0.3s; }
+        .qr-card:hover .qr-wrapper { transform: scale(1.05) rotate(1deg); }
+
+        /* Footer */
+        footer { background-color: #ffffff; text-align: center; padding: 2.5rem; color: var(--muted); border-top: 1px solid rgba(0,0,0,0.04); font-size: 0.9rem; margin-top: auto; }
+
+        /* Responsive Design */
+        @media (max-width: 992px) { .main-grid { grid-template-columns: 1fr; gap: 3rem; } }
+        @media (max-width: 576px) { .social-container { grid-template-columns: 1fr; } .wrapper { padding: 9rem 5% 4rem 5%; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Golden Flower</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="aboutgfi.html">About GFI</a>
+            <a href="aboutceo.html">About CEO</a>
+            <a href="contact.html" class="active">Contact Us</a>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <div class="page-title">
+            <h2>Get In Touch</h2>
+            <p>Connect with Golden Flower Investment Group across our official platforms</p>
+        </div>
+
+        <main class="main-grid">
+            <!-- Left Side: Social Media Cards -->
+            <div class="social-container">
+                <a href="https://youtube.com/@littleflowerlf" target="_blank" class="social-card yt">
+                    <div class="social-icon">YT</div>
+                    <h4>YouTube</h4>
+                    <span>Watch Our Insights</span>
+                </a>
+                
+                <a href="https://tiktok.com/@littleflowerlf" target="_blank" class="social-card tk">
+                    <div class="social-icon">🎵</div>
+                    <h4>TikTok</h4>
+                    <span>Short Business Tips</span>
+                </a>
+                
+                <a href="https://t.me" target="_blank" class="social-card tg">
+                    <div class="social-icon">✈</div>
+                    <h4>Telegram</h4>
+                    <span>Join Our Community</span>
+                </a>
+                
+                <a href="https://x.com" target="_blank" class="social-card tw">
+                    <div class="social-icon">✕</div>
+                    <h4>X / Twitter</h4>
+                    <span>Latest Company News</span>
+                </a>
+            </div>
+
+            <!-- Right Side: Contact Form & QR Code -->
+            <div class="right-sidebar">
+                <div class="message-box">
+                    <h3>Send a Quick Message</h3>
+                    <form action="#" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3" placeholder="How can we help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+
+                <div class="qr-card">
+                    <h3>Direct Call QR</h3>
+                    <p>Scan to get phone number</p>
+                    <div class="qr-wrapper">
+                        <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" stroke="#1a1a1a" stroke-width="4">
+                            <rect x="10" y="10" width="25" height="25" stroke-width="5"/>
+                            <rect x="17" y="17" width="11" height="11" fill="#1a1a1a"/>
+                            <rect x="65" y="10" width="25" height="25" stroke-width="5"/>
+                            <rect x="72" y="17" width="11" height="11" fill="#1a1a1a"/>
+                            <rect x="10" y="65" width="25" height="25" stroke-width="5"/>
+                            <rect x="17" y="72" width="11" height="11" fill="#1a1a1a"/>
+                            <path d="M55 55 h15 v15 h-15 z M75 55 h15 v15" stroke-width="3"/>
+                            <path d="M55 75 h15 v15 M75 85 h15" stroke-width="3"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Golden Flower Investment Group Ethiopia. All rights are received.</p>
+    </footer>
+
+</body>
+</html>

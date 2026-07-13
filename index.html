@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Flower Investment Group - መነሻ</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', 'Segoe UI', Arial, sans-serif; }
+        :root { --gold: #c5a028; --gold-hover: #aa841c; --bg: #f8f9fa; --card: #ffffff; --text: #212529; --muted: #6c757d; }
+        body { background-color: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+        
+        header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); padding: 1.2rem 10%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-bottom: 1px solid rgba(197, 160, 40, 0.1); box-shadow: 0 4px 30px rgba(0,0,0,0.02); }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 1.5px; }
+        nav a { color: var(--text); text-decoration: none; margin-left: 2.2rem; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease; position: relative; }
+        nav a:hover, nav a.active { color: var(--gold); }
+        nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background-color: var(--gold); transition: width 0.3s ease; }
+        nav a:hover::after, nav a.active::after { width: 100%; }
+
+        .hero { min-height: 100vh; padding: 0 10%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; background: radial-gradient(circle at 80% 20%, rgba(197, 160, 40, 0.05) 0%, transparent 50%); }
+        .hero-badge { background: rgba(197, 160, 40, 0.1); color: var(--gold); padding: 0.6rem 1.5rem; border-radius: 50px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem; animation: fadeInDown 0.8s ease; }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 2rem; color: #1a1a1a; animation: fadeIn 1s ease 0.2s both; }
+        .hero h1 span { color: var(--gold); }
+        .get-started-btn { display: inline-block; padding: 1.1rem 2.8rem; font-size: 1.1rem; font-weight: 700; color: #ffffff; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-hover) 100%); border: none; border-radius: 50px; cursor: pointer; text-decoration: none; box-shadow: 0 10px 25px rgba(197, 160, 40, 0.35); transition: all 0.3s ease; animation: fadeInUp 0.8s ease 0.4s both; }
+        .get-started-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(197, 160, 40, 0.5); }
+
+        .chart-graphic { position: absolute; bottom: 0; right: 10%; display: flex; align-items: flex-end; gap: 20px; opacity: 0.08; }
+        .bar { width: 55px; background: linear-gradient(to top, var(--gold), transparent); border-radius: 8px 8px 0 0; animation: growBar 1.5s cubic-bezier(0.4, 0, 0.2, 1) both; }
+        .bar-1 { height: 120px; animation-delay: 0.2s; } .bar-2 { height: 190px; animation-delay: 0.4s; } .bar-3 { height: 260px; animation-delay: 0.6s; } .bar-4 { height: 350px; animation-delay: 0.8s; }
+
+        footer { background-color: #ffffff; text-align: center; padding: 2.5rem; color: var(--muted); border-top: 1px solid rgba(0,0,0,0.05); font-size: 0.9rem; font-weight: 500; }
+
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes growBar { from { height: 0; } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.3rem; } .chart-graphic { display: none; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Golden Flower</div>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="aboutgfi.html">About GFI</a>
+            <a href="aboutceo.html">About CEO</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <main class="hero">
+        <div class="hero-badge">Investment Group</div>
+        <h1>Welcome! <br> <span>እንኳን ደህና መጡ!</span></h1>
+        <a href="aboutgfi.html" class="get-started-btn">Get Started</a>
+        
+        <div class="chart-graphic">
+            <div class="bar bar-1"></div>
+            <div class="bar bar-2"></div>
+            <div class="bar bar-3"></div>
+            <div class="bar bar-4"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Golden Flower Investment Group Ethiopia. All rights are received.</p>
+    </footer>
+</body>
+</html>
