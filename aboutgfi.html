@@ -29,15 +29,24 @@
         .image-container { display: flex; justify-content: center; position: relative; }
         .image-container::after { content: ''; position: absolute; width: 340px; height: 340px; border: 2px dashed rgba(197, 160, 40, 0.3); border-radius: 50%; z-index: 1; transform: scale(1.08); }
         .ceo-image { width: 340px; height: 340px; border-radius: 50%; box-shadow: 0 20px 40px rgba(0,0,0,0.15); object-fit: cover; border: 6px solid #ffffff; z-index: 2; transition: all 0.5s ease; }
-        .ceo-image:hover { transform: scale(1.03) rotate(2deg); }
+        .ceo-image:hover { transform: scale(1.02) rotate(2deg); }
 
         footer { background-color: #ffffff; text-align: center; padding: 2.5rem; color: var(--muted); border-top: 1px solid rgba(0,0,0,0.05); font-size: 0.9rem; }
         @media (max-width: 992px) { .container { grid-template-columns: 1fr; gap: 4rem; text-align: center; } .content-box p { text-align: center; } .image-container::after { display: none; } .ceo-image { width: 280px; height: 280px; } }
+        .hi{
+            color: #1a1a1a;
+            text-shadow: 0 0 25px rgba(2, 120, 223, 0.6);
+            animation: fadeIn 1s ease;
+        }
+        .highlight{
+            color: #237efd;
+        }
+        
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">Golden Flower</div>
+        <div class="logo">Golden Flower Investment Group</div>
         <nav>
             <a href="index.html">Home</a>
             <a href="aboutgfi.html" class="active">About GFI</a>
@@ -52,18 +61,59 @@
                 <h2>Who is Golden Flower</h2>
                 <h3>Investment Group</h3>
                 <p>
-                    Golden Flower Investment Group flourishes as a premier entity dedicated to generating robust assets, driving economic prosperity, and building sustainable wealth infrastructures.
+                    <strong>
+                    <span class="highlight">
+                        Golden Flower Investment Group 
+                    </span>
+                    </strong>
+                    የተቋቋመው እንደ ኢትዮጵያውያን ቀመር አቆጣጠር በ2015 ዓ.ም ነው።<br>
+                    በሰዓቱ የድርጅቱ ስም ኢዮሲያስ ቢረጋ ኃላ/የተ/የግ/ማህበር የነበረ ሲሆን<br>
+                    እስከ 2017 ዓ.ም ስራ እየሰራ አልነበረም ነገር ግን በ2017 ዓ.ም በተደረገው እንቅስቃሴ በgraphics design ስራ የጀመረ ሲሆን ለተለያዩ ተቋማት ስራ ሊሰራ ችሏል።
+                    ለምሳሌ፦ 
+                    <strong>
+                    <span class="highlight">
+                        አጆራ ፏፏቴ የህክምና እቃዎች ጅምላ አከፋፋይ 
+                    </span>
+                    </strong> ፣
+                    
+                    <strong>
+                    <span class="highlight">
+                         ኢትዮ-ካናዳ አካዳሚ
+                    </span>
+                    </strong> እና የመሳሰሉትን መጥቀስ ይቻላል።<br>
+                    በ2018 ዓ.ም ስሙን ወደ 
+                    <strong>
+                    <span class="highlight">
+                        Golden Flower General Trading PLC.
+                    </span>
+                    </strong> በመቀየር ወደ 3 የሚጠጉ በስነ-ስርዓት የሚንቀሳቀሱ ማለትም ስራ የሚሰሩ ሲስተሞችን
+                    <strong>
+                    <span class="highlight"> (office operating systems)</span>
+                    </strong> ገንብቷል።<br> 
+                    አሁን ደግሞ ስራውን ለማሳደግ ከሐምሌ 6 2018 ዓ.ም ጀምሮ ለ2019  ዓ.ም ዝግጅቱን እያደረገ ነው።<br>
+                    ዝግጅቱን ሲጨርስ 
+                    Golden Flower Investment Group ይሆን እና በስሩ ደግሞ ፦<br>
+                    <strong class="hi">
+                            Little Flower Microfinance<br>
+                            Golden Flower Printing & General Trading<br>
+                            and others
+                    </strong>
+                <br>
+                    ይይዛል። እና ደግሞ የ Microfinance አገልግሎት ፣ የWebsite designing ፣ Graphics design እና የመሳሰሉትን አገልግሎት ይሰጣል።  <br>
+                    አሁን ላይ በአጠቃላይ ድርጅቱ ከተመሰረተ 3ተኛ ዓመቱን ይዟል።<br>
+                    በ2019 ዓ.ም የተጣራ 5000.00 ብር ትርፍ ለማግኘት እየሰራ ይገኛል።
                 </p>
                 <a href="aboutceo.html" class="btn-inline">Who is the Founder & CEO</a>
             </div>
             <div class="image-container">
-                <img src="image.png" alt="Founder and CEO Eyasuel Birgual" class="ceo-image">
+                <img src="image.png" alt="Founder and CEO Eyosiyas Birega" class="ceo-image
+                ">
             </div>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 Golden Flower Investment Group Ethiopia. All rights are received.</p>
+        <p>&copy; 2026 Golden Flower Investment Group Ethiopia.<br> All rights are received!  መብቱ በህግ የተጠበቀ !</p>
     </footer>
 </body>
 </html>
